@@ -51,7 +51,9 @@ class LojaController extends Controller
     {
         try {
             //retorna a loja com os produtos
-            return $loja->with('produtos')->findOrFail($loja->id);
+            // return $loja->with('produtos')->findOrFail($loja->id); // retorna loja com produtos
+            return $loja; // retorna loja
+
         } catch (\Exception $e) {
             return response()->json(
                 ['error' => true, 'message' => 'Loja não encontrada'],
