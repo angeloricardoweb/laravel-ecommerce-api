@@ -14,4 +14,11 @@ class ProductController extends Controller
     {
         return Product::paginate(10);
     }
+
+    public function store(Request $request)
+    {
+        $product = Product::create($request->all());
+
+        return response()->json($product, 201);
+    }
 }
