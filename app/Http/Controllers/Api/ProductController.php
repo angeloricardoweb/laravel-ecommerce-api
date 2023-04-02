@@ -33,4 +33,11 @@ class ProductController extends Controller
         $product->update($request->all());
         return response()->json(["message" => "Editado com sucesso"], 200);
     }
+
+    public function deleteById(string $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->delete();
+        return response()->json(["message" => "Deletado com sucesso"], 200);
+    }
 }
