@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\LojaController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,3 +26,5 @@ Route::post('/products', [ProductController::class, 'store']);
 Route::get('/products/{id}', [ProductController::class, 'showById']);
 Route::put('/products/{id}', [ProductController::class, 'updateById']);
 Route::delete('/products/{id}', [ProductController::class, 'deleteById']);
+
+Route::resource('users', UserController::class);
