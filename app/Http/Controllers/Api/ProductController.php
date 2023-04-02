@@ -21,4 +21,16 @@ class ProductController extends Controller
 
         return response()->json($product, 201);
     }
+
+    public function showById(string $id)
+    {
+        return Product::findOrFail($id);
+    }
+
+    public function updateById(Request $request, string $id)
+    {
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
+        return response()->json(["message" => "Editado com sucesso"], 200);
+    }
 }
